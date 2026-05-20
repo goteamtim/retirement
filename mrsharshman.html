@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Note for Mrs. Harshman — 44 Years of Kindergarten</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #faf6ef;
+      --parchment: #f0e8d8;
+      --warm-brown: #6b4c2a;
+      --deep-brown: #3d2a14;
+      --amber: #c8843a;
+      --sage: #7a9e7e;
+      --sage-light: #d4e6d5;
+      --text: #3d2a14;
+      --muted: #8a7060;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--cream);
+      color: var(--text);
+      font-family: 'Lora', Georgia, serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Subtle grain texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ─── HEADER ─────────────────────────────────────────────── */
+    header {
+      position: relative;
+      background: linear-gradient(160deg, #e8d9c0 0%, #f5ece0 40%, #faf6ef 100%);
+      border-bottom: 2px solid var(--parchment);
+      padding: 60px 24px 80px;
+      text-align: center;
+      overflow: hidden;
+      animation: fadeDown 1s ease both;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0; right: 0;
+      height: 40px;
+      background: var(--cream);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+
+    .header-ornament {
+      display: block;
+      color: var(--amber);
+      font-size: 1.6rem;
+      letter-spacing: 0.3em;
+      margin-bottom: 20px;
+      opacity: 0.7;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--deep-brown);
+      margin-bottom: 12px;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--amber);
+    }
+
+    .tagline {
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--muted);
+      margin-top: 10px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ─── PHOTO + INTRO ──────────────────────────────────────── */
+    .intro-section {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 64px 24px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 36px;
+      animation: fadeUp 1s 0.3s ease both;
+    }
+
+    .photo-frame {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 6px solid var(--parchment);
+      box-shadow: 0 4px 24px rgba(107,76,42,0.18), 0 0 0 3px var(--amber);
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--parchment);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Replace the src below with your actual photo file */
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* ── TO ADD PHOTO: upload your image file alongside index.html
+            and change the src below to your filename, e.g. "teacher.jpg" ── */
+    }
+
+    .photo-placeholder {
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-align: center;
+      padding: 16px;
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    .intro-text {
+      text-align: center;
+    }
+
+    .intro-text h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.7rem;
+      font-weight: 400;
+      color: var(--deep-brown);
+      margin-bottom: 16px;
+    }
+
+    .intro-text p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--text);
+      max-width: 560px;
+    }
+
+    .intro-text p + p {
+      margin-top: 14px;
+    }
+
+    .stat-row {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--amber);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+    }
+
+    /* ─── DIVIDER ────────────────────────────────────────────── */
+    .divider {
+      text-align: center;
+      color: var(--amber);
+      font-size: 1.2rem;
+      letter-spacing: 0.4em;
+      opacity: 0.5;
+      margin: 0 auto;
+      max-width: 700px;
+      padding: 0 24px;
+    }
+
+    /* ─── FORM SECTION ───────────────────────────────────────── */
+    .form-section {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+      animation: fadeUp 1s 0.5s ease both;
+    }
+
+    .form-section h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.9rem;
+      font-weight: 400;
+      text-align: center;
+      color: var(--deep-brown);
+      margin-bottom: 8px;
+    }
+
+    .form-section .form-sub {
+      text-align: center;
+      font-style: italic;
+      color: var(--muted);
+      font-size: 0.97rem;
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+
+    .form-card {
+      background: #fff;
+      border: 1px solid var(--parchment);
+      border-radius: 16px;
+      padding: 40px 36px;
+      box-shadow: 0 8px 40px rgba(107,76,42,0.08);
+    }
+
+    .field {
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--warm-brown);
+      margin-bottom: 7px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid #ddd0c0;
+      border-radius: 8px;
+      font-family: 'Lora', Georgia, serif;
+      font-size: 0.97rem;
+      color: var(--text);
+      background: var(--cream);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      appearance: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--amber);
+      box-shadow: 0 0 0 3px rgba(200,132,58,0.12);
+    }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a7060' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+      line-height: 1.7;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .prompt-panel {
+      margin-bottom: 24px;
+      padding: 22px 20px;
+      border: 1px solid #e6d7c2;
+      border-radius: 14px;
+      background: linear-gradient(180deg, #fffdf9 0%, #f8f1e6 100%);
+    }
+
+    .prompt-panel h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--deep-brown);
+      margin-bottom: 8px;
+    }
+
+    .prompt-panel p {
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .prompt-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .prompt-item {
+      position: relative;
+      padding: 14px 16px 14px 46px;
+      border-radius: 10px;
+      background: rgba(250, 246, 239, 0.9);
+      border: 1px solid rgba(200, 132, 58, 0.15);
+      color: var(--text);
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+
+    .prompt-item::before {
+      content: '✦';
+      position: absolute;
+      left: 16px;
+      top: 14px;
+      color: var(--amber);
+      font-size: 1rem;
+    }
+
+    @media (max-width: 520px) {
+      .field-row { grid-template-columns: 1fr; }
+      .form-card { padding: 28px 20px; }
+    }
+
+    .optional-tag {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-style: italic;
+      text-transform: none;
+      letter-spacing: 0;
+      margin-left: 6px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 15px;
+      background: var(--amber);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(200,132,58,0.25);
+      margin-top: 8px;
+    }
+
+    .submit-btn:hover {
+      background: var(--warm-brown);
+      box-shadow: 0 6px 20px rgba(107,76,42,0.3);
+    }
+
+    .submit-btn:active {
+      transform: translateY(1px);
+    }
+
+    .privacy-note {
+      text-align: center;
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--muted);
+      margin-top: 16px;
+    }
+
+    /* ─── SUCCESS STATE ──────────────────────────────────────── */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 32px 24px;
+      background: var(--sage-light);
+      border: 1px solid var(--sage);
+      border-radius: 12px;
+      margin-top: 24px;
+    }
+
+    .success-msg h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.4rem;
+      color: var(--deep-brown);
+      margin-bottom: 8px;
+    }
+
+    .success-msg p {
+      color: var(--muted);
+      font-style: italic;
+      font-size: 0.97rem;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      background: var(--parchment);
+      border-top: 1px solid #e0d3be;
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ─── ANIMATIONS ─────────────────────────────────────────── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ────────────────────────────────────────────── -->
+  <header>
+    <h1>A Note for <em>Mrs. Harshman</em></h1>
+    <p class="tagline">44 years of first days, little hands, and big hearts — thank you.</p>
+  </header>
+
+  <!-- ── INTRO ─────────────────────────────────────────────── -->
+  <section class="intro-section">
+
+    <div class="photo-frame">
+      <img src="teacher.jpg" alt="Mrs. Harshman" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+      <p class="photo-placeholder" style="display:none;">📷<br>Add photo as<br><strong>teacher.jpg</strong></p>
+    </div>
+
+    <div class="intro-text">
+      <h2>She shaped a generation — or two, or three.</h2>
+      <p>
+        From 1982 to 2026, Mrs. Harshman welcomed over a thousand students through the door
+        of her kindergarten classroom. She tied shoes, dried tears, sparked curiosity,
+        and sent each child into the world a little more ready for it.
+      </p>
+      <p>
+        Now it's her turn. If Mrs. Harshman was your teacher — or your child's teacher, or simply
+        someone who touched your life — she would love to hear from you.
+      </p>
+
+      <div class="stat-row" style="margin-top:32px;">
+        <div class="stat">
+          <div class="stat-number">44</div>
+          <div class="stat-label">Years Teaching</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">1982</div>
+          <div class="stat-label">First Class</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">2026</div>
+          <div class="stat-label">A Well-Earned Rest</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="divider">— ✦ —</div>
+
+  <!-- ── FORM ───────────────────────────────────────────────── -->
+  <section class="form-section">
+
+    <h2>Leave Mrs. Harshman a Note</h2>
+    <p class="form-sub">
+      Share a memory, say thank you, or just let her know where life has taken you.<br>
+      Every message will be passed along to her.
+    </p>
+
+    <div class="form-card">
+      <form id="noteForm" action="https://formspree.io/f/mojbenad" method="POST">
+        <input type="text" name="_gotcha" style="display:none" />
+        <input type="hidden" name="_subject" value="New retirement note for Mrs. Harshman" />
+
+        <div class="field-row">
+          <div class="field">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+          </div>
+          <div class="field">
+            <label for="year">Year in Mrs. Harshman's Class</label>
+            <select id="year" name="year" required>
+              <option value="" disabled selected>Select a year…</option>
+              <option value="parent-colleague-friend">I'm a parent / colleague / friend</option>
+              <optgroup label="Former Students">
+                <!-- Years run newest → oldest so recent grads appear first -->
+                <script>
+                  for (let y = 2026; y >= 1982; y--) {
+                    document.write(`<option value="${y}-${y+1}">${y}–${y+1} school year</option>`);
+                  }
+                </script>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="email">Your Email <span class="optional-tag">(optional)</span></label>
+            <input type="email" id="email" name="email" placeholder="you@example.com">
+          </div>
+        </div>
+
+        <div class="prompt-panel" aria-label="Suggested writing prompts">
+          <h3>Need a starting point?</h3>
+          <div class="prompt-list">
+            <div class="prompt-item">Write about your favorite memory from Mrs. Harshman’s class.</div>
+            <div class="prompt-item">Share where you are in life now and what you’re up to.</div>
+            <div class="prompt-item">Tell a story you still remember about Mrs. Harshman or her classroom.</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" placeholder="Share a memory, say thank you, or just say hello…" required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Send My Note to Mrs. Harshman</button>
+
+        <p class="privacy-note">Your message goes directly to Mrs. Harshman's family. Nothing is sold or shared.</p>
+
+      </form>
+
+      <div class="success-msg" id="successMsg">
+        <h3>Thank you — your note is on its way. 💛</h3>
+        <p>Mrs. Harshman's family will make sure she sees every message.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer>
+    Made with love &nbsp;✦&nbsp; Congratulations, Mrs. Harshman.
+  </footer>
+
+  <script>
+    // Show a success message after Formspree redirects back
+    // Formspree adds ?success=true to the URL on submit
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('success') === 'true') {
+      document.getElementById('noteForm').style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+    }
+
+    // Smooth success fallback for JS-only flow (if you add AJAX later)
+    document.getElementById('noteForm').addEventListener('submit', function() {
+      // Let Formspree handle the redirect naturally
+    });
+  </script>
+
+</body>
+</html>
